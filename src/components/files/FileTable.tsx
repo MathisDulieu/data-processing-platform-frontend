@@ -1,4 +1,5 @@
 import { Trash2, Eye } from "lucide-react";
+import { parseApiDate } from "@/utils/date";
 import type { FileResponse, FileStatus } from "@/types/file.types";
 import DataTable, { type Column } from "@/components/ui/DataTable";
 import Badge from "@/components/ui/Badge";
@@ -19,7 +20,7 @@ const statusVariant: Record<FileStatus, BadgeVariant> = {
 };
 
 function formatDate(value: string): string {
-    return new Date(value).toLocaleString("en-GB", {
+    return parseApiDate(value).toLocaleString("en-GB", {
         day: "2-digit",
         month: "short",
         year: "numeric",

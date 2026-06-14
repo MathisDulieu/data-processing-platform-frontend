@@ -1,4 +1,5 @@
 import { Eye } from "lucide-react";
+import { parseApiDate } from "@/utils/date";
 import type { RejectedTransactionResponse } from "@/types/rejectedTransaction.types";
 import DataTable, { type Column } from "@/components/ui/DataTable";
 
@@ -9,7 +10,7 @@ interface RejectedTransactionTableProps {
 }
 
 function formatDate(value: string): string {
-    return new Date(value).toLocaleString("en-GB", {
+    return parseApiDate(value).toLocaleString("en-GB", {
         day: "2-digit",
         month: "short",
         year: "numeric",

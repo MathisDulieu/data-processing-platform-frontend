@@ -1,4 +1,5 @@
 import { FileText, CheckCircle, XCircle, Clock } from "lucide-react";
+import { parseApiDate } from "@/utils/date";
 import type { FileDetailsResponse, FileStatus } from "@/types/file.types";
 import Modal from "@/components/ui/Modal";
 import Badge from "@/components/ui/Badge";
@@ -26,7 +27,7 @@ const statusIcon: Record<FileStatus, typeof CheckCircle> = {
 };
 
 function formatDate(value: string): string {
-    return new Date(value).toLocaleString("en-GB", {
+    return parseApiDate(value).toLocaleString("en-GB", {
         day: "2-digit",
         month: "short",
         year: "numeric",

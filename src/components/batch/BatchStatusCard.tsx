@@ -1,4 +1,5 @@
 import { CheckCircle, XCircle, Clock, AlertCircle } from "lucide-react";
+import { parseApiDate } from "@/utils/date";
 import type { BatchStatusResponse } from "@/types/batch.types";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
@@ -12,7 +13,7 @@ interface BatchStatusCardProps {
 
 function formatDateTime(value: string | null): string {
     if (!value) return "—";
-    return new Date(value).toLocaleString("en-GB", {
+    return parseApiDate(value).toLocaleString("en-GB", {
         day: "2-digit",
         month: "short",
         year: "numeric",
@@ -24,7 +25,7 @@ function formatDateTime(value: string | null): string {
 
 function formatDuration(start: string | null, end: string | null): string {
     if (!start || !end) return "—";
-    const ms = new Date(end).getTime() - new Date(start).getTime();
+    const ms = parseApiDate(end).getTime() - parseApiDate(start).getTime();
     if (ms < 1000) return `${ms}ms`;
     return `${(ms / 1000).toFixed(1)}s`;
 }

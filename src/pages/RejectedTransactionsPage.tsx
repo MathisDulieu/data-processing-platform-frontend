@@ -8,10 +8,11 @@ import StatCard from "@/components/ui/StatCard";
 import Modal from "@/components/ui/Modal";
 import Button from "@/components/ui/Button";
 import { ToastContainer, type ToastMessage } from "@/components/ui/Toast";
+import { parseApiDate } from "@/utils/date";
 import type { RejectedTransactionResponse } from "@/types/rejectedTransaction.types";
 
 function formatDate(value: string): string {
-    return new Date(value).toLocaleString("en-GB", {
+    return parseApiDate(value).toLocaleString("en-GB", {
         day: "2-digit", month: "short", year: "numeric",
         hour: "2-digit", minute: "2-digit", second: "2-digit",
     });

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Clock, Zap, PowerOff, Save } from "lucide-react";
+import { parseApiDate } from "@/utils/date";
 import type { BatchScheduleStatusResponse, BatchScheduleRequest, ScheduleType } from "@/types/scheduler.types";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
@@ -32,7 +33,7 @@ const SCHEDULE_TYPES: { value: ScheduleType; label: string; description: string;
 
 function formatDateTime(value: string | null): string {
     if (!value) return "—";
-    return new Date(value).toLocaleString("en-GB", {
+    return parseApiDate(value).toLocaleString("en-GB", {
         day: "2-digit",
         month: "short",
         year: "numeric",
