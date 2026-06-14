@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-primary: #0052cc;
+    --color-brand-primary-hover: #0065ff;
+    --color-brand-primary-dark: #003d99;
+    --color-brand-secondary: #172b4d;
+    --color-brand-accent: #00b8d9;
+
+    --color-surface-base: #ffffff;
+    --color-surface-sunken: #f4f5f7;
+    --color-surface-raised: #ffffff;
+    --color-surface-overlay: #ffffff;
+
+    --color-border-default: #dfe1e6;
+    --color-border-subtle: #ebecf0;
+    --color-border-bold: #b3bac5;
+
+    --color-text-primary: #172b4d;
+    --color-text-secondary: #5e6c84;
+    --color-text-disabled: #97a0af;
+    --color-text-inverse: #ffffff;
+    --color-text-link: #0052cc;
+
+    --color-status-success: #36b37e;
+    --color-status-success-bg: #e3fcef;
+    --color-status-success-text: #006644;
+    --color-status-warning: #ff991f;
+    --color-status-warning-bg: #fffae6;
+    --color-status-warning-text: #974f0c;
+    --color-status-error: #de350b;
+    --color-status-error-bg: #ffebe6;
+    --color-status-error-text: #bf2600;
+    --color-status-info: #0052cc;
+    --color-status-info-bg: #deebff;
+    --color-status-info-text: #0747a6;
+    --color-status-neutral: #6b778c;
+    --color-status-neutral-bg: #f4f5f7;
+    --color-status-neutral-text: #42526e;
+
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+    --radius-sm: 3px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+
+    --shadow-card: 0 1px 3px rgba(23, 43, 77, 0.08), 0 0 0 1px rgba(23, 43, 77, 0.06);
+    --shadow-raised: 0 4px 8px rgba(23, 43, 77, 0.1), 0 0 1px rgba(23, 43, 77, 0.08);
+    --shadow-overlay: 0 8px 16px rgba(23, 43, 77, 0.14), 0 0 1px rgba(23, 43, 77, 0.1);
+
+    --animate-fade-in: fade-in 0.2s ease-out;
+    --animate-slide-up: slide-up 0.25s ease-out;
+    --animate-slide-in-left: slide-in-left 0.25s ease-out;
+    --animate-spin-slow: spin 1.5s linear infinite;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-surface-sunken);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-border-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border-bold);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-secondary);
+}
+
+::selection {
+    background-color: #deebff;
+    color: var(--color-brand-primary);
+}
